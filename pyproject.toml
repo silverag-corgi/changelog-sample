@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "changelog-sample"
+version = "0.0.0"
+description = "changelog sample"
+authors = ["xxx"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    {include = "changelog_sample", from = "src"}
+]
+
+[tool.poetry.build]
+generate-setup-file = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+commitizen = "^2.42.1"
+python-semantic-release = "^7.33.2"
+commitizen-cz-custom-commits = {path = "../commitizen-cz-custom-commits", develop = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.commitizen]
+name = "cz_custom_commits"
+version = "0.0.0"
+version_files = [
+    "pyproject.toml:version"
+]
+tag_format = "v$version"
+update_changelog_on_bump = true
+bump_message = "chore: bump from $current_version to $new_version"
+changelog_file = "CHANGELOG_cz.md"
+# major_version_zero = true # for initial development
+
+[tool.semantic_release]
+branch = "main"
+version_toml = [
+    "pyproject.toml:tool.poetry.version",
+    "pyproject.toml:tool.commitizen.version"
+]
+version_source = "commit"
+# major_on_zero = true # for initial development
+commit_subject = "chore: bump to {version}"
+commit_message = ""
+commit_author = "semantic-release <noreply@github.com>" # this is author, but not comitter
+changelog_sections = "breaking, feature, fix, performance"
+changelog_components = "semantic_release.changelog.changelog_headers,semantic_release.changelog.compare_url"
+changelog_file = "CHANGELOG_sr.md"
+upload_to_repository = false # upload distributions to pypi repository
+upload_to_release = false # upload distributions to GitHub releases
+tag_format = "v{version}"
