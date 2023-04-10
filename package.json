@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "version": "conventional-changelog --preset angular --release-count 0 --tag-prefix v --pkg package.json --infile CHANGELOG_cc.md --same-file && git add CHANGELOG_cc.md"
   },
