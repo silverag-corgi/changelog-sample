@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "changelog-sample"
-version = "1.0.0"
+version = "0.0.0"
 description = "changelog sample"
 authors = ["xxx"]
 license = "MIT"
@@ -26,7 +26,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.commitizen]
 name = "cz_custom_commits"
-version = "1.0.0"
+version = "0.0.0"
 version_files = [
     "pyproject.toml:version"
 ]
@@ -35,6 +35,8 @@ update_changelog_on_bump = true
 bump_message = "chore: bump from $current_version to $new_version"
 changelog_file = "CHANGELOG_cz.md"
 # major_version_zero = true # for initial development
+github_repo_owner = "silverag-corgi"
+github_repo_name = "changelog-sample"
 
 [tool.semantic_release]
 branch = "main"
