@@ -16,7 +16,7 @@ generate-setup-file = false
 python = "^3.10"
 
 [tool.poetry.group.dev.dependencies]
-commitizen = "^2.42.1"
+commitizen = "^3.2.1"
 python-semantic-release = "^7.33.2"
 commitizen-cz-custom-commits = {path = "../commitizen-cz-custom-commits", develop = true}
 
@@ -26,15 +26,13 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.commitizen]
 name = "cz_custom_commits"
-version = "1.0.0"
-version_files = [
-    "pyproject.toml:version"
-]
+version_provider = "poetry"
 tag_format = "v$version"
 update_changelog_on_bump = true
 bump_message = "chore: bump from $current_version to $new_version"
 changelog_file = "CHANGELOG_cz.md"
 # major_version_zero = true # for initial development
+version_type = "semver"
 github_repo_owner = "silverag-corgi"
 github_repo_name = "changelog-sample"
 
